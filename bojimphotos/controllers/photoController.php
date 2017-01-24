@@ -94,6 +94,7 @@ if (isset($_POST['submit-post'])) {
 	}
 
 	if (!in_array(true, $errorState)) {
+
 		if (!empty($medias)) {
 			foreach ($medias as $index => $media) {
 				move_uploaded_file($_FILES['photos']['tmp_name'][$index], $folder . $filename[$index]);
@@ -101,6 +102,7 @@ if (isset($_POST['submit-post'])) {
 				$media->save();
 			}
 		}
+
 		$confirmation = true;
 		$_POST = array();
 	} else {
