@@ -1,0 +1,464 @@
+html {
+	width: 100%;
+	height: auto;
+	margin:0;
+	padding: 0;
+}
+
+body{
+	background-color: #3c93b7;
+	margin:0;
+	padding: 0;
+}
+
+a {
+	outline: medium none;
+	text-decoration: none;
+}
+
+h1{
+	color: #ffffff;
+	font-family: 'Arial';
+	font-weight: bold;
+	text-align: center;
+	padding-top: 2%;
+	font-size: 2em;
+	line-height: 32px;
+	text-transform: uppercase;
+}
+
+h2{
+	font-size: 3em;
+	margin-bottom: 0;
+	font-family: 'Arial';
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 0.6%;
+	color: #30596d;
+}
+
+img{
+	border:0;
+}
+
+#container{
+	width: 100%;
+	height: 100vh;
+	margin:0 auto;
+	padding: 0;
+}
+
+.blue{color:#30596d;}
+.red{color:#a23639;}
+
+
+/*------------------------ HEADER BEGINNING-------------------------*/
+header{
+	padding-top:1vh;
+	height: 23vh;
+}
+
+header #title{
+	width: 454px;
+	margin:0 auto;
+	height: 19%;
+}
+
+header #title #ban-title{
+	background-image: url('../../img/title-bkg.png');
+	background-repeat: no-repeat;
+	width: 454px;
+	height: 78px;
+}
+
+header #title p{
+	color: #ffffff;
+	font-family: Impact;
+	text-align: center;
+	margin:0;
+	font-size: 6.5em;
+	text-transform: uppercase;
+}
+/*------------------------ HEADER END -------------------------*/
+
+
+
+/*------------------------ PROMOTION BEGINNING -------------------------*/
+#promotion-container{
+	margin-top: -3vh;
+	height: 33vh;
+	margin-bottom: 7vh;
+}
+
+#bird img{
+	margin-left: 20%;
+}
+
+#ban-place{
+	overflow: hidden;
+	margin: -1% 0 0 5%;
+}
+
+#ban-place>div:nth-child(2){
+	background-color: #fff;
+	height: auto;
+	float: left;
+	width: 80%;
+	padding: 14px 0;
+}
+
+#ban-place img{
+	float: left;
+	width: 5.7%;
+}
+
+#btn-action{
+	overflow: hidden;
+	padding:2% 0;
+}
+
+#btn-action .btn{
+	background-color:#a23639;
+	border-radius: 5px;
+	width: 44.5%;
+	float: left;
+	margin: 0% 2%;
+	text-align: center;
+	font-size: 1em;
+	height: 60px;
+}
+
+#btn-action .facebook{
+	margin: 5.2%;
+}
+
+#btn-action .agenda{
+	margin: 5.2%;
+}
+
+#btn-action .mail{
+	margin: 5.2% 3%;
+}
+
+#btn-action a{
+	color: #fff;
+	text-decoration: none;
+	font-family: arial;
+	position: relative;
+	z-index: 1000;
+}
+
+#btn-action img{
+	padding-top: 1.3%;
+	width: 2.82%;
+}
+
+/*------------------------ PROMOTION END -------------------------*/
+
+
+
+
+/*------------------------ BILLBOARD BEGINNING -------------------------*/
+#billboard-container{
+	width: 100%;
+	margin:0 auto;
+	/*z-index: 1000;
+	position: relative;*/
+	background-image: url('../../img/sapins-footer.png');
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+	background-size: 100% auto;
+	height:37vh;
+}
+
+#billboard{
+	width: 389px;
+	background-image: url('../../img/panneau.png');
+	background-repeat: no-repeat;
+	overflow: hidden;
+	height: 370px;
+	z-index: 1000;
+	margin: 0 auto;
+	/*position: absolute;
+	bottom:15px;*/
+}
+
+#billboard #pancarte{
+	text-align: center;
+	width: 100%;
+}
+
+#pancarte p{
+	color: #855d3b;
+	font-family: arial;
+	font-weight: bold;
+	text-align: center;
+	font-size:2.1em;
+	text-transform: uppercase;
+	padding-top: 9%;
+}
+
+#billboard-partage p{
+	color: #855d3b;
+	font-family: arial;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	font-size:1em;
+	padding-top: 11%;
+	margin:0;
+}
+
+#billboard-partage>div{
+	overflow: hidden;
+	width: 32%;
+	margin: 0 auto;
+	z-index:1000;
+	position: relative;
+}
+
+#billboard-partage .btn-share{
+	width: 45px;
+	height: 45px;
+	background: #30596d;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	float: left;
+	margin:10% 6%;
+}
+
+#billboard-partage .facebook{
+	padding: 20% 21%;
+	width: 27px;
+}
+
+#billboard-partage .mail{
+	padding: 20% 21%;
+	width: 27px;
+}
+
+/*------------------------ BILLBOARD END -------------------------*/
+
+.popup {
+	text-align: center;
+	font-size: 1.7em;
+	color: white;
+	width: 100%;
+	height: 70px;
+	text-transform: uppercase;
+	padding-top: 30px;
+	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+	font-family: arial;
+}
+
+.popup.mail {
+	background-color: #1eadbc;
+}
+
+/*-------------- ANIMATE CLOUD ---------------*/
+.cloud{
+	background-image: url('https://www.ca-sudrhonealpes.fr/Vitrine/ObjCommun/Fic/SudRhoneAlpes/2015/11-12h-chrono-du-web/teasing/cloud.png');
+	width: 79px;
+	height: 39px;
+	position: absolute;
+}
+
+.cloud-right{
+	-webkit-animation: cloud-right 40s infinite; /* Safari 4+ */
+	-moz-animation:    cloud-right 40s infinite; /* Fx 5+ */
+	-o-animation:      cloud-right 40s infinite; /* Opera 12+ */
+	animation:         cloud-right 40s infinite; /* IE 10+, Fx 29+ */
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+}
+
+.cloud-left{
+	-webkit-animation: cloud-left 40s infinite; /* Safari 4+ */
+	-moz-animation:    cloud-left 40s infinite; /* Fx 5+ */
+	-o-animation:      cloud-left 40s infinite; /* Opera 12+ */
+	animation:         cloud-left 40s infinite; /* IE 10+, Fx 29+ */
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-delay: 2s;
+	-webkit-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+	-o-animation-delay: 2s;
+}
+
+.first-cloud{
+	top: 78px;
+	left: 0px;
+}
+
+.second-cloud{
+	top: 600px;
+	right: 0px;
+}
+
+@-webkit-keyframes cloud-left {
+	0%   { left: -80px }
+	100% { left: 100%; }
+}
+@-moz-keyframes cloud-left {
+	0%   { left: -80px }
+	100% { left: 100%; }
+}
+@-o-keyframes cloud-left {
+	0%   { left: -80px }
+	100% { left: 100%; }
+}
+@keyframes cloud-left {
+	0%   { left: -80px }
+	100% { left: 100%; }
+}
+
+@-webkit-keyframes cloud-right {
+	0%   { right: 0 }
+	100% { right: 100%; }
+}
+@-moz-keyframes cloud-right {
+	0%   { right: 0 }
+	100% { right: 100%; }
+}
+@-o-keyframes cloud-right {
+	0%   { right: 0 }
+	100% { right: 100%; }
+}
+@keyframes cloud-right {
+	0%   { right: 0 }
+	100% { right: 100%; }
+}
+
+/*-------------- ANIMATE CLOUD END ---------------*/
+
+
+
+
+
+/*-------------- SNOW BEGINNING ---------------*/
+
+.i-large,
+.i-medium,
+.i-small {
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.i-large{position : absolute;}
+.i-medium{position : absolute;}
+
+.i-large {
+	background: url("../../img/particules_large.png") repeat 0px 0px;
+	-webkit-animation: dropFlowParticles 3s linear infinite;
+	     -o-animation: dropFlowParticles 3s linear infinite;
+	        animation: dropFlowParticles 3s linear infinite;
+}
+.i-medium {
+	background: url("../../img/particules_medium.png") repeat 0px 0px;
+	-webkit-animation: dropFlowParticles 12s linear infinite;
+	     -o-animation: dropFlowParticles 12s linear infinite;
+	        animation: dropFlowParticles 12s linear infinite;
+}
+/*.i-small {
+	background:url("img/particules_small.png") repeat 0px 0px;
+	-webkit-animation: dropFlowParticles 27s linear infinite;
+	     -o-animation: dropFlowParticles 27s linear infinite;
+	        animation: dropFlowParticles 27s linear infinite;
+}*/
+
+@-webkit-keyframes dropFlowParticles {
+	from { background-position: 0 0; }
+	to { background-position: 0 413px; }
+}
+@keyframes dropFlowParticles {
+	from { background-position: 0 0; }
+	to { background-position: 0 413px; }
+}
+/*-------------- SNOW END ---------------*/
+
+
+/*-------------- FOOTER END ---------------*/
+footer{
+	background-color: #e7e9eb;
+	font-family: 'arial';
+	text-align: center;
+	color: #3c93b7;
+	height: 2vh;
+}
+
+footer a{
+	color: #3c93b7;
+	font-weight: bold;
+	z-index: 1000;
+	position: relative;
+}
+/*-------------- FOOTER END ---------------*/
+
+
+
+/*-------------------------------------------------------------*/
+/*------------------------ RESPONSIVE -------------------------*/
+/*-------------------------------------------------------------*/
+
+
+@media screen and (max-width: 1547px){
+	#btn-action .mail{margin: 5.2% 10%;}
+}
+
+@media screen and (max-width: 1317px){
+	#btn-action .mail{margin: 5.2% 0%;}
+	#btn-action .btn{font-size: 0.9em;}
+	#btn-action .facebook,#btn-action .mail{margin: 5.2%;}
+	#btn-action .agenda{margin: 5.2% 0;}
+}
+
+@media screen and (max-width: 1280px){
+	footer, #container, #promotion-container,#billboard-container,#header{height: auto;}
+	.i-medium{position : relative;}
+}
+
+@media screen and (max-width: 1100px){
+	h2{font-size: 4vw}
+	#btn-action .btn{width: 70%;height: 40px;margin: 0 15% 1% 15%;}
+	.hidden-snowflake{display: none;}
+	#btn-action .agenda, #btn-action .facebook,#btn-action .mail{margin:10px;}
+	#billboard{bottom: 0px;background-size: 100% 96%;width: 306px;height: 318px;}
+	#pancarte p{font-size: 1.7em;}
+	#billboard-partage>div{width: 40%;}
+	#billboard-partage .btn-share{margin: 4% 6%;}
+	#promotion{margin:0;}
+	#bird img{width: 11%;margin-left: 45%;}
+	#promotion-container{margin-top:40px;}
+}
+
+@media screen and (max-width: 537px){
+	header #title #ban-title{background-repeat: no-repeat;background-size: 100% 100%;}
+	h2{font-size:1.5em;}
+}
+
+@media screen and (max-width: 517px){
+	#btn-action .btn{margin: 0 5% 2% 5%;width: 90%;}
+	#billboard-container{height: 300px;}
+}
+
+@media screen and (max-width: 487px){
+	header #title #ban-title{width: 318px;height: 70px;margin:0 auto;}
+	header #title{width: 100%;}
+	h1{padding-top: 1%;font-size: 1.5em;}
+	header #title p{font-size: 4.5em;}
+}
+
+@media screen and (max-width: 407px){
+	#btn-action .agenda, #btn-action .facebook, #btn-action .mail{margin:10px 0;}
+	#btn-action .btn{font-size: 4vw;}
+}
+
+/*------------------------ MOBILE LANDSCAPE-------------------------*/
+@media screen and (max-width: 700px){
+	header{height: 200px;}
+}

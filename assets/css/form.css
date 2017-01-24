@@ -1,0 +1,257 @@
+fieldset {
+
+}
+
+form.form_vente {
+	padding: 20px;
+}
+
+.form_container a.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    color: #22aebc;
+    font-size: 50px;
+    opacity: 1 !important;
+    text-shadow: none !important;
+}
+
+hr {
+	border-top: 1px solid #22aebc !important;
+}
+
+label span {
+	color: #25566b;
+}
+
+.modal-footer {
+	text-align: left !important;
+	font-size: 10px;
+	color:grey;
+}
+
+input[type="text"]:disabled {
+	background-color: rgb(31, 31, 37) !important;
+}
+
+.form_container {
+	width: 100%;
+	background-color: rgba(31, 31, 37, 1);
+	position: absolute;
+	z-index: 9999;
+}
+
+.form_container h2 {
+	text-align: center;
+	color: #2ED5E5;
+	font-size: 3em;
+	z-index: 9999;
+	margin-top: 75px;
+	width: 100%;
+}
+
+.form_container p {
+	color: white;
+	text-align: center;
+	font-size: 18px;
+}
+
+.form_container p span {
+	color: #2ED5E5 !important;
+}
+
+label {
+	display: block;
+	/*font-weight: bold;*/
+}
+
+.form_vente form label {
+	display: block;
+	margin: 0px 0px 10px 0px;
+}
+
+.white {
+	color: #FFF;
+}
+
+.reglement input {
+	display: inline-block;
+}
+
+.reglement a {
+	color: #22aebc;
+}
+
+.form_vente label > span, .form_vente label{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	color: black;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.submit_form {
+	margin-top: 15px;
+}
+
+.birthday {
+	width: 114px !important;
+	margin-top: -10px;
+}
+
+input[type="radio"] {
+	display: block;
+	width: 10px;
+	margin-right: 15px;
+}
+
+legend, form p {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	/*font-weight: bold;*/
+	color: #855d3b;
+}
+
+input[type="submit"] {
+	cursor: pointer;
+	text-align: center;
+}
+
+.reglement input {
+	width: 10px;
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.form_vente input[type=text], .form_vente input[type=email],
+.form_vente select{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border:1px solid #FFF;
+	padding: 7px;
+	margin:10px 0 6px 0;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	width: 100%;
+}
+
+.form_vente input[type=email], select {
+}
+
+.form_vente select {
+}
+
+.form_vente input[type="radio"] {
+	float: left;
+	margin-top: 2px;
+}
+
+.form_vente input[type="checkbox"] {
+	float: left;
+	width: 20px;
+}
+
+fieldset label {
+	width: 200px;
+	float: left;
+}
+
+.birth-day, .birth-month, .birth-year {
+	width: 33% !important;
+	float: left;
+}
+
+.form-control {
+	display: block;
+	width: 95% !important;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+input, textarea, keygen, select, button {
+	margin: 0em;
+	font: -webkit-small-control;
+	color: initial;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+}
+
+.error {
+	/*font-weight: bold;*/
+	color: #992020;
+}
+
+h2.remaining {
+	color: #4D4D50;
+	text-align: center;
+	font-size: 22px;
+	overflow: hidden;
+}
+
+.error {
+	color: red;
+	/*font-weight: bold;*/
+}
+
+.popup {
+	text-align: center;
+	font-size: 1.7em;
+	color: white;
+	width: 100%;
+	height: 75px;
+	text-transform: uppercase;
+	padding: 15px;
+	text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+}
+
+.popup.mail {
+	background-color: #1eadbc;
+}
+
+.popup.error {
+	background-color: #862113;
+}
+
+.btn-success {
+	background-color: #1eadbc !important;
+	border-color: #1eadbc;
+}
+
+.popup.mail.small {
+	font-size: 1.3em;
+}
+
+.main_color {
+	color: tomato !important;
+}
+
