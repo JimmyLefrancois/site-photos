@@ -76,6 +76,7 @@ if (isset($_POST['submit-post'])) {
 		$filename[$i] = $_FILES['photos']['name'][$i];
 		$filename[$i] = setFilename($filename[$i]);
 		$extension = strrchr($_FILES['photos']['name'][$i], '.');
+
 		if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 		{
 			$errorExtention = true;
@@ -85,24 +86,14 @@ if (isset($_POST['submit-post'])) {
 
 		if ($modelPhoto->isValid()) {
 			$medias[$i] = $modelPhoto;
-			// if(move_uploaded_file($_FILES['photos']['tmp_name'][$i], $folder . $filename)) {
-			//  $state[$i]['upload'] = true;
-			//  $modelPhoto->save();
-			// } else {
-			//  $state[$i]['upload'] = false;
-			// }
-			// $confirmation = true;
 		} else {
-			//$errorState[$i]['errorMedia'] = true;
-			//$mediaErrors = $modelPhoto->getErrors();
-			// $confirmation = false;
+			$errorState[$i]['errorMedia'] = true;
+			$mediaErrors = $modelPhoto->getErrors();
+			$confirmation = false;
 		}
 	}
 
 	if (!in_array(true, $errorState)) {
-		// $modelShare->save();
-		// $shareID = $modelShare->id;
-
 		if (!empty($medias)) {
 			foreach ($medias as $index => $media) {
 				move_uploaded_file($_FILES['photos']['tmp_name'][$index], $folder . $filename[$index]);
@@ -113,7 +104,6 @@ if (isset($_POST['submit-post'])) {
 		$confirmation = true;
 		$_POST = array();
 	} else {
-		//var_dump('PAS OK');
 		$confirmation = false;
 	}
 
