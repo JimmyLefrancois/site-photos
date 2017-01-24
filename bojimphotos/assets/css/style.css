@@ -1,3 +1,20 @@
-.photo_container {
+#form-photos select {
+}
 
+.button_file {
+	width: 250px;
+	height: 35px;
+	border: none;
+	background-color: rgb(14, 90, 111);
+	color: white;
+}
+
+.upload_image {
+	max-height: 170px;
+	overflow: hidden;
+}
+
+.thumb{
+	width: 250px;
+	margin-right: 10px;
 }
