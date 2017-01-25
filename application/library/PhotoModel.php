@@ -62,6 +62,11 @@ class PhotoModel extends Model
 	public $iso;
 
 	/**
+	 * @var Varchar path of PhotoModel
+	 */
+	public $path;
+
+	/**
 	 * @var Datetime of PhotoModel
 	 */
 	public $date;
@@ -98,6 +103,7 @@ class PhotoModel extends Model
 			'focal_length',
 			'exposure_time',
 			'iso',
+			'path',
 			'date'
 		);
 	}
