@@ -6,7 +6,7 @@ h1 {
     padding: 0 !important;
 }
 
-#form-photos textarea {
+#form-photos label {
     width: 100% !important;
 }
 
@@ -29,6 +29,7 @@ h1 {
 	border: none;
 	background-color: rgb(14, 90, 111);
 	color: white;
+    margin-top: 8px;
 }
 
 .upload_image {

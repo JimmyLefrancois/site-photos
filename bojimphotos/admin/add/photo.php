@@ -93,7 +93,7 @@
 
 								<div class="form-group">
 									<label>Description de votre photo
-										<textarea rows="3" class="form-control" name="description[]"><?php if(isset($_POST['description'])) echo $description; ?></textarea>
+										<textarea rows="3" cols="5" class="form-control" name="description[]"><?php if(isset($_POST['description'])) echo $description; ?></textarea>
 									</label>
 								</div>
 							</div>
