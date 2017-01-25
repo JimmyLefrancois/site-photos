@@ -9,14 +9,14 @@
 	</div>
 <?php endif; ?>
 
-<!-- <?php if (!$number && !isset($_POST['submit-post'])): ?>
+<?php if (!$number && !isset($_POST['submit-post'])): ?>
 	<form action="#" method="post">
 		<label for="number">
 			<input type="number" placeholder="Combien de photos voulez-vous ajouter" name="number" id="number">
 		</label>
 		<input type="submit" value="Valider" name="submit-number">
 	</form>
-<?php else: ?> -->
+<?php else: ?>
 
 	<h1>Ajout de photo</h1>
 
@@ -108,9 +108,8 @@
 	</div>
 
 
-<!-- <?php endif ?>
+<?php endif ?>
 
- -->
 <?php include_once('../../templates/footer.html') ?>
 <!-- <form action="#" method="post">
 	<label for="name">Nom de l'album</label>
