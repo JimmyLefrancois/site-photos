@@ -18,12 +18,12 @@ $cityModel = new CityModel();
 $cities = $cityModel->getAll();
 
 // A DECOMMENTER UNE FOIS L INTE OK
-// if (isset($_POST['number'])) {
-// 	$number = (int) $_POST['number'];
-// 	if ($number == 0) $errors['number'] = 'Mauvais format.';
-// } else {
-// 	$number = null;
-// }
+if (isset($_POST['number'])) {
+	$number = (int) $_POST['number'];
+	if ($number == 0) $errors['number'] = 'Mauvais format.';
+} else {
+	$number = null;
+}
 
 if (isset($_POST['submit-post'])) {
 
