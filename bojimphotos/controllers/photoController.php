@@ -101,6 +101,22 @@ if (isset($_POST['submit-post'])) {
 
 		if (!empty($medias)) {
 			foreach ($medias as $index => $media) {
+
+				$exif = exif_read_data($_FILES['photos']['tmp_name'][$index], NULL, true, true);
+				$aperture = $exif['EXIF']['FNumber'];
+				$focal_length = $exif['EXIF']['FocalLengthIn35mmFilm'];
+				$exposure_time = $exif['EXIF']['ExposureTime'];
+				$iso = $exif['EXIF']['ISOSpeedRatings'];
+
+				if ($aperture) $media->aperture = $aperture;
+					else $media->aperture = NULL;
+				if ($focal_length) $media->focal_length = $focal_length;
+					else $media->focal_length = NULL;
+				if ($exposure_time) $media->exposure_time = $exposure_time;
+					else $media->exposure_time = NULL;
+				if ($iso) $media->iso = $iso;
+					else $media->iso = NULL;
+
 				move_uploaded_file($_FILES['photos']['tmp_name'][$index], $folder . $filename[$index]);
 				var_dump($media);
 				$media->save();
