@@ -52,8 +52,12 @@ if (isset($_POST['submit-post'])) {
 	// ON STOCK LE NB REEL DE PHOTOS ENVOYEES
 	$count = count($files['name']);
 
+	$date = new DateTime();
+	$date = $date->format('c');
+
 	for ($i=0; $i < $countMedia; $i++) {
 		$modelPhoto = new PhotoModel();
+		$modelPhoto->date = $date;
 
 		if (isset($_POST["album"]) && $_POST["album"] != "0") $modelPhoto->album_id = $_POST["album"];
 			else $modelPhoto->album_id = NULL;
