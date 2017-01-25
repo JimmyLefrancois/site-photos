@@ -102,7 +102,9 @@ if (isset($_POST['submit-post'])) {
 		if (!empty($medias)) {
 			foreach ($medias as $index => $media) {
 
-				$exif = exif_read_data($_FILES['photos']['tmp_name'][$index], NULL, true, true);
+				$image = $_FILES['photos']['tmp_name'][$index];
+
+				$exif = exif_read_data($image, NULL, true, true);
 				$aperture = $exif['EXIF']['FNumber'];
 				$focal_length = $exif['EXIF']['FocalLengthIn35mmFilm'];
 				$exposure_time = $exif['EXIF']['ExposureTime'];
@@ -117,8 +119,27 @@ if (isset($_POST['submit-post'])) {
 				if ($iso) $media->iso = $iso;
 					else $media->iso = NULL;
 
-				move_uploaded_file($_FILES['photos']['tmp_name'][$index], $folder . $filename[$index]);
-				var_dump($media);
+				$media->path = $filename[$index];
+
+				move_uploaded_file($image, $folder . $filename[$index]);
+
+				$realpath = realpath($folder . $filename[$index]);
+
+				$imagick = new Imagick($realpath);
+				$profiles = $imagick->getImageProfiles("icc", true);
+				$imagick->setCompression(imagick::COMPRESSION_JPEG);
+				$imagick->setCompressionQuality(100);
+				$imagick->stripImage();
+				if(!empty($profiles))
+					$imagick->profileImage("icc", $profiles['icc']);
+				$imagick->writeImage($realpath);
+
+				// $profiles = $img->getImageProfiles("icc", true);
+				// $image->stripImage();
+				// if(!empty($profiles))
+				// 	$img->profileImage("icc", $profiles['icc']);
+
+				// move_uploaded_file($image, $folder . $filename[$index]);
 				$media->save();
 			}
 		}
