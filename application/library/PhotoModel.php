@@ -42,6 +42,26 @@ class PhotoModel extends Model
 	public $country_id;
 
 	/**
+	 * @var Varchar aperture of PhotoModel
+	 */
+	public $aperture;
+
+	/**
+	 * @var Varchar focal_length of PhotoModel
+	 */
+	public $focal_length;
+
+	/**
+	 * @var Varchar exposure_time of PhotoModel
+	 */
+	public $exposure_time;
+
+	/**
+	 * @var Varchar iso of PhotoModel
+	 */
+	public $iso;
+
+	/**
 	 * @var Datetime of PhotoModel
 	 */
 	public $date;
@@ -74,6 +94,10 @@ class PhotoModel extends Model
 			'category_id',
 			'city_id',
 			'country_id',
+			'aperture',
+			'focal_length',
+			'exposure_time',
+			'iso',
 			'date'
 		);
 	}
