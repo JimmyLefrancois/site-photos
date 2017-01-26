@@ -9,22 +9,28 @@
 <?php endif; ?>
 
 <?php if (isset($confirmation) && $confirmation): ?>
-	<p class="success">La ville <?php echo $cityModel->name ?> a bien été ajoutée.</p>
+	<fieldset class="success">
+		<p class="success">La ville <?php echo $cityModel->name ?> a bien été ajoutée.</p>
+		<a href="../list/city.php" title="Retour à la liste des villes" class="btn btn-success">Retour à la liste des villes</a>
+	</fieldset>
 <?php endif ?>
 
-<form action="#" method="post">
+<fieldset>
+	<legend>Créer un nouvel album</legend>
+	<form action="#" method="post">
 
-	<label for="country">
-		<select name="country" id="country">
-			<option value="0">Séléctionnez un pays</option>
-			<?php foreach ($countries as $index => $country): ?>
-				<option value="<?php echo $country->id ?>"><?php echo $country->name ?></option>
-			<?php endforeach ?>
-		</select>
-	</label>
+		<label for="country">
+			<select name="country" id="country">
+				<option value="0">Séléctionnez un pays</option>
+				<?php foreach ($countries as $index => $country): ?>
+					<option value="<?php echo $country->id ?>"><?php echo $country->name ?></option>
+				<?php endforeach ?>
+			</select>
+		</label>
 
-	<label for="name">Nom de la ville</label>
-	<input type="text" name="name" id="name" placeholder="Nom de la ville" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>">
+		<label for="name">Nom de la ville</label>
+		<input type="text" name="name" id="name" placeholder="Nom de la ville" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>">
 
-	<input type="submit" value="Créer l'album" name="submit-city">
-</form>
+		<input type="submit" value="Créer l'album" name="submit-city">
+	</form>
+</fieldset>
