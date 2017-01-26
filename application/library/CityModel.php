@@ -70,4 +70,15 @@ class CityModel extends Model
 		$statement->execute();
 		return $statement->fetch(PDO::FETCH_OBJ);
 	}
+
+	public function getCitiesInfos()
+	{
+		$query = 'SELECT C.id, C.name, C.date, CO.name AS country  FROM `' . $this->table . '` C';
+		$query .= ' INNER JOIN country CO ON CO.id = C.country_id';
+
+		$statement = $this->getPdo()->prepare($query);
+
+		$statement->execute();
+		return $statement->fetchAll(PDO::FETCH_OBJ);
+	}
 }
