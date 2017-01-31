@@ -34,6 +34,6 @@ function getAllCities()
 function getAllPhotos()
 {
 	$photoModel = new PhotoModel();
-	$albums = $PhotoModel->getAll();
-	return $albums;
+	$photos = $photoModel->getPhotosInfos();
+	return $photos;
 }
