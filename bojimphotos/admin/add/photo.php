@@ -1,5 +1,8 @@
 <?php include_once('../../controllers/photoController.php'); ?>
+
 <?php include_once('../../templates/header.html') ?>
+
+<?php include_once('../../templates/sidebar.html'); ?>
 
 <?php if (isset($errors)): ?>
 	<div class="row bg-danger errors bold">
@@ -9,65 +12,69 @@
 	</div>
 <?php endif; ?>
 
+<h1 class="page-header">Ajout des photos</h1>
+
 <?php if (!$number && !isset($_POST['submit-post'])): ?>
+	<h2 class="sub-header">Combien de photos souhaitez-vous ajouter ?</h2>
+
 	<form action="#" method="post">
-		<label for="number">
-			<input type="number" placeholder="Combien de photos voulez-vous ajouter" name="number" id="number">
-		</label>
-		<input type="submit" value="Valider" name="submit-number">
+		<div class="form-group">
+			<label for="number">
+				<input type="number" class="form-control" placeholder="Combien de photos voulez-vous ajouter" name="number" id="number">
+			</label>
+		</div>
+		<input type="submit" value="Valider" class="btn btn-info" name="submit-number">
 	</form>
 <?php else: ?>
-
-	<h1>Ajout de photo</h1>
 
 	<div class="row">
 		<div class="col-md-12">
 			<form action="#" method="post" class="form" id="form-photos" enctype="multipart/form-data">
 				<?php $i = 0;?>
 
-				<fieldset>
-					<legend>Informations des photos</legend>
+<!-- 				<fieldset>
+	<legend>Informations des photos</legend>
 
-					<div class="row">
+	<div class="row">
 
-						<div class="col-md-5 col-md-offset-1">
-							<select class="form-control" name="album" id="album">
-									<option value="0">Séléctionnez un album</option>
-									<?php foreach ($albums as $index => $album): ?>
-										<option value="<?php echo $album->id ?>"><?php echo $album->name ?></option>
-									<?php endforeach ?>
-							</select>
-						</div>
+		<div class="col-md-5 col-md-offset-1">
+			<select class="form-control" name="album" id="album">
+					<option value="0">Séléctionnez un album</option>
+					<?php foreach ($albums as $index => $album): ?>
+						<option value="<?php echo $album->id ?>"><?php echo $album->name ?></option>
+					<?php endforeach ?>
+			</select>
+		</div>
 
-						<div class="col-md-5">
-							<select class="form-control" name="category" id="category">
-									<option value="0">Séléctionnez une catégorie</option>
-									<?php foreach ($categories as $index => $category): ?>
-										<option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
-									<?php endforeach ?>
-							</select>
-						</div>
+		<div class="col-md-5">
+			<select class="form-control" name="category" id="category">
+					<option value="0">Séléctionnez une catégorie</option>
+					<?php foreach ($categories as $index => $category): ?>
+						<option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+					<?php endforeach ?>
+			</select>
+		</div>
 
-						<div class="col-md-5 col-md-offset-1">
-							<select class="form-control" name="country" id="country">
-									<option value="0">Séléctionnez un pays</option>
-									<?php foreach ($countries as $index => $country): ?>
-										<option value="<?php echo $country->id ?>"><?php echo $country->name ?></option>
-									<?php endforeach ?>
-							</select>
-						</div>
+		<div class="col-md-5 col-md-offset-1">
+			<select class="form-control" name="country" id="country">
+					<option value="0">Séléctionnez un pays</option>
+					<?php foreach ($countries as $index => $country): ?>
+						<option value="<?php echo $country->id ?>"><?php echo $country->name ?></option>
+					<?php endforeach ?>
+			</select>
+		</div>
 
-						<div class="col-md-5">
-							<select class="form-control" name="city" id="city">
-									<option value="0">Séléctionnez une ville</option>
-									<?php foreach ($cities as $index => $city): ?>
-										<option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
-									<?php endforeach ?>
-							</select>
-						</div>
+		<div class="col-md-5">
+			<select class="form-control" name="city" id="city">
+					<option value="0">Séléctionnez une ville</option>
+					<?php foreach ($cities as $index => $city): ?>
+						<option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
+					<?php endforeach ?>
+			</select>
+		</div>
 
-					</div>
-				</fieldset>
+	</div>
+</fieldset> -->
 
 				<fieldset>
 					<legend>Upload</legend>
@@ -96,7 +103,43 @@
 										<textarea rows="3" cols="5" class="form-control" name="description[]"><?php if(isset($_POST['description'])) echo $description; ?></textarea>
 									</label>
 								</div>
-							</div>
+
+								<div class="col-md-3">
+									<select class="form-control" name="album[]">
+											<option value="0">Séléctionnez un album</option>
+											<?php foreach ($albums as $index => $album): ?>
+												<option value="<?php echo $album->id ?>"><?php echo $album->name ?></option>
+											<?php endforeach ?>
+									</select>
+								</div>
+
+								<div class="col-md-3">
+									<select class="form-control" name="category[]">
+											<option value="0">Séléctionnez une catégorie</option>
+											<?php foreach ($categories as $index => $category): ?>
+												<option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+											<?php endforeach ?>
+									</select>
+								</div>
+
+								<div class="col-md-3">
+									<select class="form-control" name="country[]">
+											<option value="0">Séléctionnez un pays</option>
+											<?php foreach ($countries as $index => $country): ?>
+												<option value="<?php echo $country->id ?>"><?php echo $country->name ?></option>
+											<?php endforeach ?>
+									</select>
+								</div>
+
+								<div class="col-md-3">
+									<select class="form-control" name="city[]">
+											<option value="0">Séléctionnez une ville</option>
+											<?php foreach ($cities as $index => $city): ?>
+												<option value="<?php echo $city->id ?>"><?php echo $city->name ?></option>
+											<?php endforeach ?>
+									</select>
+							</div></div>
+
 						</div>
 
 						<?php $i++; ?>
