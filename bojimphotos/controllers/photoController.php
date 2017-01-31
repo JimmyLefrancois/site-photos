@@ -59,16 +59,16 @@ if (isset($_POST['submit-post'])) {
 		$modelPhoto = new PhotoModel();
 		$modelPhoto->date = $date;
 
-		if (isset($_POST["album"]) && $_POST["album"] != "0") $modelPhoto->album_id = $_POST["album"];
+		if (isset($_POST["album"][$i]) && $_POST["album"][$i] != "0") $modelPhoto->album_id = $_POST["album"][$i];
 			else $modelPhoto->album_id = NULL;
 
-		if (isset($_POST["category"]) && $_POST["category"] != "0") $modelPhoto->category_id = $_POST["category"];
+		if (isset($_POST["category"][$i]) && $_POST["category"][$i] != "0") $modelPhoto->category_id = $_POST["category"][$i];
 			else $modelPhoto->category_id = NULL;
 
-		if (isset($_POST["country"]) && $_POST["country"] != "0") $modelPhoto->country_id = $_POST["country"];
+		if (isset($_POST["country"][$i]) && $_POST["country"][$i] != "0") $modelPhoto->country_id = $_POST["country"][$i];
 			else $modelPhoto->country_id = NULL;
 
-		if (isset($_POST["city"]) && $_POST["city"] != "0") $modelPhoto->city_id = $_POST["city"];
+		if (isset($_POST["city"][$i]) && $_POST["city"][$i] != "0") $modelPhoto->city_id = $_POST["city"][$i];
 			else $modelPhoto->city_id = NULL;
 
 		if (isset($_POST["name"][$i]) && $_POST["name"][$i] != "0") $modelPhoto->name = $_POST["name"][$i];
@@ -86,7 +86,7 @@ if (isset($_POST['submit-post'])) {
 			$errorExtention = true;
 		}
 
-		if ($errorExtention) $modelPhoto->errorExtention = true;
+		if (isset($errorExtention) && $errorExtention) $modelPhoto->errorExtention = true;
 
 		if ($modelPhoto->isValid()) {
 			$medias[$i] = $modelPhoto;
@@ -105,10 +105,14 @@ if (isset($_POST['submit-post'])) {
 				$image = $_FILES['photos']['tmp_name'][$index];
 
 				$exif = exif_read_data($image, NULL, true, true);
-				$aperture = $exif['EXIF']['FNumber'];
-				$focal_length = $exif['EXIF']['FocalLengthIn35mmFilm'];
-				$exposure_time = $exif['EXIF']['ExposureTime'];
-				$iso = $exif['EXIF']['ISOSpeedRatings'];
+				if(isset($exif['EXIF']['FNumber'])) $aperture = $exif['EXIF']['FNumber'];
+					else $aperture = NULL;
+				if(isset($exif['EXIF']['FocalLengthIn35mmFilm'])) $focal_length = $exif['EXIF']['FocalLengthIn35mmFilm'];
+					else $focal_length = NULL;
+				if(isset($exif['EXIF']['ExposureTime'])) $exposure_time = $exif['EXIF']['ExposureTime'];
+					else $exposure_time = NULL;
+				if(isset($exif['EXIF']['ISOSpeedRatings'])) $iso = $exif['EXIF']['ISOSpeedRatings'];
+					else $iso = NULL;
 
 				if ($aperture) $media->aperture = $aperture;
 					else $media->aperture = NULL;
@@ -125,14 +129,14 @@ if (isset($_POST['submit-post'])) {
 
 				$realpath = realpath($folder . $filename[$index]);
 
-				$imagick = new Imagick($realpath);
+				/*$imagick = new Imagick($realpath);
 				$profiles = $imagick->getImageProfiles("icc", true);
 				$imagick->setCompression(imagick::COMPRESSION_JPEG);
 				$imagick->setCompressionQuality(100);
 				$imagick->stripImage();
 				if(!empty($profiles))
 					$imagick->profileImage("icc", $profiles['icc']);
-				$imagick->writeImage($realpath);
+				$imagick->writeImage($realpath);*/
 
 				// $profiles = $img->getImageProfiles("icc", true);
 				// $image->stripImage();
@@ -159,78 +163,3 @@ function setFilename($filename)
 	$filename = $rand . "_" . preg_replace('/([^.a-z0-9]+)/i', '-', $filenameProcess);
 	return $filename;
 }
-
-
-
-/*
-$folder = 'uploads/';
-$files = $_FILES['photos'];
-
-$extensions = array('.png', '.gif', '.jpg', '.jpeg', 'JPG', 'JPEG', 'PNG', 'GIF', 'pdf');
-
-$countMedia = 0;
-$state = [];
-$errorState = [];
-$medias = [];
-
-// var_dump('test');
-
-foreach ($files['name'] as $file) {
-	if ($file != "") $countMedia++;
-}
-
-//$count = count($files['name']);
-
-for ($i=0; $i < $countMedia; $i++) {
-	$modelMedia = new MediaModel();
-	$filename[$i] = $_FILES['photos']['name'][$i];
-	$filename[$i] = setFilename($filename[$i]);
-	$extension = strrchr($_FILES['photos']['name'][$i], '.');
-	if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
-	{
-		$errorExtention = true;
-	}
-
-	$modelMedia->path = $filename[$i];
-
-	if ($errorExtention) $modelMedia->errorExtention = true;
-
-	if ($modelMedia->isValid()) {
-		$medias[$i] = $modelMedia;
-		// if(move_uploaded_file($_FILES['photos']['tmp_name'][$i], $folder . $filename)) {
-		//  $state[$i]['upload'] = true;
-		//  $modelMedia->save();
-		// } else {
-		//  $state[$i]['upload'] = false;
-		// }
-		// $confirmation = true;
-	} else {
-		$errorState[$i]['errorMedia'] = true;
-		$mediaErrors = $modelMedia->getErrors();
-		// $confirmation = false;
-	}
-}
-
-if (!in_array(true, $errorState)) {
-	//var_dump('OK');
-	$modelShare->save();
-	$shareID = $modelShare->id;
-
-	if (!empty($medias)) {
-		foreach ($medias as $index => $media) {
-			//var_dump($_FILES['photos']['tmp_name'][$index]);
-			move_uploaded_file($_FILES['photos']['tmp_name'][$index], $folder . $filename[$index]);
-			$media->share_id = $shareID;
-			//var_dump($media);
-			$media->save();
-		}
-	}
-	$confirmation = true;
-	$mailUser->sendMail();
-	$mailDig->sendMail();
-	$_POST = array();
-} else {
-	//var_dump('PAS OK');
-	$confirmation = false;
-}
-*/
