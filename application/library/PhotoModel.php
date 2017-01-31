@@ -108,4 +108,18 @@ class PhotoModel extends Model
 		);
 	}
 
+	public function getPhotosInfos()
+	{
+		$query = 'SELECT P.name, P.description, P.aperture, P.focal_length, P.exposure_time, P.iso, P.path, P.date, A.name AS album, CA.name AS category, CO.name AS country, CI.name AS city FROM `' . $this->table . '` P';
+		$query .= ' INNER JOIN album A ON A.id = P.album_id';
+		$query .= ' INNER JOIN category CA ON CA.id = P.category_id';
+		$query .= ' LEFT JOIN country CO ON CO.id = P.country_id';
+		$query .= ' LEFT JOIN city CI ON CI.id = P.city_id';
+
+		$statement = $this->getPdo()->prepare($query);
+
+		$statement->execute();
+		return $statement->fetchAll(PDO::FETCH_OBJ);
+	}
+
 }
